@@ -6,10 +6,26 @@ using namespace std;
 class child: public parent
 {
     public:
-        child ();
-        child (int, int);
-        void printData();
-        ~child();
+    /**
+     * @brief Construct a new child object
+     * 
+     */
+    child ();
+    /**
+     * @brief Construct a new child object
+     * 
+     */
+    child (int, int);
+    /**
+     * @brief 
+     * 
+     */
+    void printData();
+    /**
+     * @brief Destroy the child object
+     * 
+     */
+    ~child();
         
 };
 
