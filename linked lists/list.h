@@ -25,8 +25,12 @@ class list{
      * @brief Deletes the a given node 
      */
     void deleteNode(int);
-
-
+    /**
+     * @brief Finds the length/size of linked list
+     * 
+     * @return int -- length of linked list
+     */
+    int findLen();
 };
 
 #endif // LIST_H

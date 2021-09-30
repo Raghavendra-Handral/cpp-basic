@@ -12,5 +12,4 @@ class Node{
     Node(int);       
 };
 
-
 #endif // NODE_H
