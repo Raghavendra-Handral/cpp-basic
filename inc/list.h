@@ -13,14 +13,7 @@
 #include <iostream>
 #include "Node.h"
 using namespace std;
-/*
-template<
-    class Key,
-    class Hash = std::hash<Key>,
-    class KeyEqual = std::equal_to<Key>,
-    class Allocator = std::allocator<Key>
-> class unordered_set;
-*/
+
 class list{
     //Node* head;
     public :
@@ -56,6 +49,11 @@ class list{
      * @return bool -- True if the loop is detected, else false
      */
     bool detectLoop();
+    /**
+     * @brief Deletes the linked list and frees the memory
+     *
+     */
+    void deleteList();
 };
 
 #endif // LIST_H

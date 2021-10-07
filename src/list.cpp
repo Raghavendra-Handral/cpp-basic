@@ -86,3 +86,15 @@ bool list :: detectLoop(){
     }
     return false;
 }
+// Function to delete the linked list and free the allocated memory
+void list :: deleteList(){
+    Node* current = head;
+    Node* nex = NULL;
+    while(current != NULL){
+        nex = current->next;
+        free(current);
+        current = nex;
+    }
+    head = NULL;
+    cout << "Entire linked list is deleted" << endl;
+}
