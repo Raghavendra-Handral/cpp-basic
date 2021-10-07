@@ -73,3 +73,16 @@ int list :: findLen(){
     }
     return i;
 }
+// Function to detect loop in the linked list
+bool list :: detectLoop(){
+    Node* slowPtr = head;
+    Node* fastPtr = head;
+    while(slowPtr && fastPtr && fastPtr->next){
+        slowPtr = slowPtr->next;
+        fastPtr = fastPtr->next->next;
+        if(slowPtr == fastPtr) {
+            return true;
+        }
+    }
+    return false;
+}

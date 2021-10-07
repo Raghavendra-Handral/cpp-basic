@@ -1,0 +1,288 @@
+        -:    0:Source:cirQueue.cpp
+        -:    0:Graph:cirQueue.gcno
+        -:    0:Data:cirQueue.gcda
+        -:    0:Runs:1
+        -:    0:Programs:1
+        -:    1:#include<bits/stdc++.h>
+        -:    2:using namespace std;
+        -:    3:
+        -:    4:class Queue
+        -:    5:{
+        -:    6:    public:
+        -:    7:	// Initialize front and rear
+        -:    8:	int rear, front;
+        -:    9:
+        -:   10:	// Circular Queue
+        -:   11:	int size;
+        -:   12:	int *arr;
+        -:   13:
+function _ZN5QueueC1Ei called 1 returned 100% blocks executed 80%
+        1:   14:	Queue(int s)
+        1:   15:	{
+        1:   16:	front = rear = -1;
+        1:   17:	size = s;
+       1*:   18:	arr = new int[s];
+branch  0 taken 1 (fallthrough)
+branch  1 taken 0
+call    2 never executed
+call    3 returned 1
+        1:   19:	}
+        -:   20:
+        -:   21:	void enQueue(int value);
+        -:   22:	int deQueue();
+        -:   23:	void displayQueue();
+        -:   24:};
+        -:   25:
+        -:   26:
+        -:   27:/* Function to create Circular queue */
+function _ZN5Queue7enQueueEi called 8 returned 100% blocks executed 100%
+        8:   28:void Queue::enQueue(int value)
+        -:   29:{
+        8:   30:	if ((front == 0 && rear == size-1) ||
+branch  0 taken 3 (fallthrough)
+branch  1 taken 5
+branch  2 taken 3 (fallthrough)
+branch  3 taken 0
+        8:   31:			(rear == (front-1)%(size-1)))
+branch  0 taken 1 (fallthrough)
+branch  1 taken 7
+        -:   32:	{
+        1:   33:		printf("\nQueue is Full");
+call    0 returned 1
+        1:   34:		return;
+        -:   35:	}
+        -:   36:
+        7:   37:	else if (front == -1) /* Insert First Element */
+branch  0 taken 1 (fallthrough)
+branch  1 taken 6
+        -:   38:	{
+        1:   39:		front = rear = 0;
+        1:   40:		arr[rear] = value;
+        -:   41:	}
+        -:   42:
+        6:   43:	else if (rear == size-1 && front != 0)
+branch  0 taken 1 (fallthrough)
+branch  1 taken 5
+branch  2 taken 1 (fallthrough)
+branch  3 taken 0
+        -:   44:	{
+        1:   45:		rear = 0;
+        1:   46:		arr[rear] = value;
+        -:   47:	}
+        -:   48:
+        -:   49:	else
+        -:   50:	{
+        5:   51:		rear++;
+        5:   52:		arr[rear] = value;
+        -:   53:	}
+        -:   54:}
+        -:   55:
+        -:   56:// Function to delete element from Circular Queue
+function _ZN5Queue7deQueueEv called 10 returned 100% blocks executed 100%
+       10:   57:int Queue::deQueue()
+        -:   58:{
+       10:   59:	if (front == -1)
+branch  0 taken 3 (fallthrough)
+branch  1 taken 7
+        -:   60:	{
+        3:   61:		printf("\nQueue is Empty");
+call    0 returned 3
+        3:   62:		return INT_MIN;
+        -:   63:	}
+        -:   64:
+        7:   65:	int data = arr[front];
+        7:   66:	arr[front] = -1;
+        7:   67:	if (front == rear)
+branch  0 taken 1 (fallthrough)
+branch  1 taken 6
+        -:   68:	{
+        1:   69:		front = -1;
+        1:   70:		rear = -1;
+        -:   71:	}
+        6:   72:	else if (front == size-1)
+branch  0 taken 1 (fallthrough)
+branch  1 taken 5
+        1:   73:		front = 0;
+        -:   74:	else
+        5:   75:		front++;
+        -:   76:
+        7:   77:	return data;
+        -:   78:}
+        -:   79:
+        -:   80:// Function displaying the elements
+        -:   81:// of Circular Queue
+function _ZN5Queue12displayQueueEv called 4 returned 100% blocks executed 100%
+        4:   82:void Queue::displayQueue()
+        -:   83:{
+        4:   84:	if (front == -1)
+branch  0 taken 1 (fallthrough)
+branch  1 taken 3
+        -:   85:	{
+        1:   86:		printf("\nQueue is Empty");
+call    0 returned 1
+        1:   87:		return;
+        -:   88:	}
+        3:   89:	printf("\nElements in Circular Queue are: ");
+call    0 returned 3
+        3:   90:	if (rear >= front)
+branch  0 taken 2 (fallthrough)
+branch  1 taken 1
+        -:   91:	{
+        8:   92:		for (int i = front; i <= rear; i++)
+branch  0 taken 6 (fallthrough)
+branch  1 taken 2
+        6:   93:			printf("%d ",arr[i]);
+call    0 returned 6
+        -:   94:	}
+        -:   95:	else
+        -:   96:	{
+        1:   97:        int i = front;
+        4:   98:        do{
+        5:   99:           printf("%d ", arr[i]);
+call    0 returned 5
+        5:  100:           i = (i + 1) % size;
+        5:  101:        }while(i != (rear+1)%size);
+branch  0 taken 4 (fallthrough)
+branch  1 taken 1
+        -:  102:	}
+        -:  103:}
+        -:  104:
+        -:  105:/* Driver of the program */
+function main called 1 returned 100% blocks executed 100%
+        1:  106:int main()
+        -:  107:{
+        1:  108:	Queue q(5);
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        -:  109:
+        -:  110:	// Inserting elements in Circular Queue
+        1:  111:	q.enQueue(14);
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:  112:	q.enQueue(22);
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:  113:	q.enQueue(13);
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:  114:	q.enQueue(-6);
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        -:  115:
+        -:  116:	// Display elements present in Circular Queue
+        1:  117:	q.displayQueue();
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        -:  118:
+        -:  119:	// Deleting elements from Circular Queue
+        1:  120:	printf("\nDeleted value = %d", q.deQueue());
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+call    3 returned 1
+branch  4 taken 1 (fallthrough)
+branch  5 taken 0 (throw)
+        1:  121:	printf("\nDeleted value = %d", q.deQueue());
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+call    3 returned 1
+branch  4 taken 1 (fallthrough)
+branch  5 taken 0 (throw)
+        -:  122:
+        1:  123:	q.displayQueue();
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        -:  124:
+        1:  125:	q.enQueue(9);
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:  126:	q.enQueue(20);
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:  127:	q.enQueue(5);
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        -:  128:
+        1:  129:	q.displayQueue();
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        -:  130:
+        1:  131:	q.enQueue(20);
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        1:  132:    printf("\nDeleted value = %d", q.deQueue());
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+call    3 returned 1
+branch  4 taken 1 (fallthrough)
+branch  5 taken 0 (throw)
+        1:  133:	printf("\nDeleted value = %d", q.deQueue());
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+call    3 returned 1
+branch  4 taken 1 (fallthrough)
+branch  5 taken 0 (throw)
+        1:  134:    printf("\nDeleted value = %d", q.deQueue());
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+call    3 returned 1
+branch  4 taken 1 (fallthrough)
+branch  5 taken 0 (throw)
+        1:  135:	printf("\nDeleted value = %d", q.deQueue());
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+call    3 returned 1
+branch  4 taken 1 (fallthrough)
+branch  5 taken 0 (throw)
+        1:  136:    printf("\nDeleted value = %d", q.deQueue());
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+call    3 returned 1
+branch  4 taken 1 (fallthrough)
+branch  5 taken 0 (throw)
+        1:  137:	printf("\nDeleted value = %d", q.deQueue());
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+call    3 returned 1
+branch  4 taken 1 (fallthrough)
+branch  5 taken 0 (throw)
+        1:  138:    printf("\nDeleted value = %d", q.deQueue());
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+call    3 returned 1
+branch  4 taken 1 (fallthrough)
+branch  5 taken 0 (throw)
+        1:  139:	printf("\nDeleted value = %d", q.deQueue());
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+call    3 returned 1
+branch  4 taken 1 (fallthrough)
+branch  5 taken 0 (throw)
+        1:  140:    q.displayQueue();
+call    0 returned 1
+branch  1 taken 1 (fallthrough)
+branch  2 taken 0 (throw)
+        -:  141:
+        1:  142:	return 0;
+        -:  143:}

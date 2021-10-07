@@ -36,6 +36,8 @@ int main(){
     l.displayList();
     cout << endl;
     cout << "The length of list is " << l.findLen() << endl;
+    if(l.detectLoop()) cout << "Loop is detected " << endl;
+    else cout << "Loop is not detected " << endl;
     return 1;
     
 }
