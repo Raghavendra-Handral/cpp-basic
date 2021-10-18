@@ -24,7 +24,7 @@ class Queue
 };
 
 
-/* Function to create Circular queue */
+// Function to create Circular queue 
 void Queue::enQueue(int value)
 {
 	if ((front == 0 && rear == size-1) ||
@@ -34,7 +34,7 @@ void Queue::enQueue(int value)
 		return;
 	}
 
-	else if (front == -1) /* Insert First Element */
+	else if (front == -1) // Insert First Element 
 	{
 		front = rear = 0;
 		arr[rear] = value;
@@ -77,8 +77,7 @@ int Queue::deQueue()
 	return data;
 }
 
-// Function displaying the elements
-// of Circular Queue
+// Function displaying the elements of Circular Queue
 void Queue::displayQueue()
 {
 	if (front == -1)
@@ -98,11 +97,11 @@ void Queue::displayQueue()
         do{
            printf("%d ", arr[i]);
            i = (i + 1) % size;
-        }while(i != (rear+1)%size);
+        }while(i != (rear+1)%size);		
 	}
 }
 
-/* Driver of the program */
+
 int main()
 {
 	Queue q(5);
@@ -122,12 +121,6 @@ int main()
 	q.enQueue(5);
 	q.displayQueue();
 	q.enQueue(20);
-    printf("\nDeleted value = %d", q.deQueue());
-	printf("\nDeleted value = %d", q.deQueue());
-    printf("\nDeleted value = %d", q.deQueue());
-	printf("\nDeleted value = %d", q.deQueue());
-    printf("\nDeleted value = %d", q.deQueue());
-	printf("\nDeleted value = %d", q.deQueue());
     printf("\nDeleted value = %d", q.deQueue());
 	printf("\nDeleted value = %d", q.deQueue());
     q.displayQueue();

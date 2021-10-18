@@ -23,7 +23,6 @@ void list :: insertAtPos(int d, int n){
 void list :: insertAtEnd(int d){
     Node* newNode = new Node(d); // Creates new node
     if(head == NULL){
-        //newNode->next = head;
         head = newNode;
         return;
     }
@@ -47,7 +46,7 @@ void list :: displayList(){
     }
     return;
 }
-// Function to delete at nth position
+// Function to delete at given (nth) position
 void list :: deleteNode(int n){
     Node* temp = head;
     for(int i = 0; i < n-2; i++){
