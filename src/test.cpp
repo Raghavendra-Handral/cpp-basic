@@ -3,7 +3,6 @@
 using namespace std;
 
 test :: test(int *a, int arrSize){
-    //max=0; min=0; avg=0;
     findMaxMinAvg(a, arrSize, max, min, avg);
     cout << "minimum value is " << min << endl;
     cout << "maximum value is " << max << endl;

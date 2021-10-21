@@ -117,4 +117,4 @@ echo "scale=5;$a/$b" | bc
 echo "$a%$b" | bc
 
 echo "scale=5;sqrt($a)" | bc -l  # -l is math library
-echo "scale=5;$a^2" |bc -l
+echo "scale=5;$a^2" | bc -l
